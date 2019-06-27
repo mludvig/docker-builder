@@ -6,10 +6,6 @@ if [ "$1" == "help" -o "$1" == "--help" ]; then
     exit 0
 fi
 
-if [ -n "${ECR_LOGIN}" ]; then
-    test "${ECR_LOGIN}" == "yes" && ECR_LOGIN=""    # Login to the default account
-    $(aws ecr get-login --no-include-email ${ECR_LOGIN:+--registry-ids $(sed 's/,/ /g' <<< ${ECR_LOGIN})})
-    unset ECR_LOGIN
-fi
+./docker-ecr-login.sh ${ECR_LOGIN}
 
 exec "$@"
