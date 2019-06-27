@@ -6,6 +6,6 @@ if [ "$1" == "help" -o "$1" == "--help" ]; then
     exit 0
 fi
 
-./docker-ecr-login.sh ${ECR_LOGIN}
+/usr/local/bin/ecr-login.sh ${ECR_LOGIN}
 
 exec "$@"
