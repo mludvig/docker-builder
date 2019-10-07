@@ -1,6 +1,6 @@
 FROM docker:latest
 
-RUN apk add --update jq bash build-base git openssh
+RUN apk add --update jq bash build-base linux-headers git openssh
 RUN apk add --update python3 python3-dev py3-pip \
   py3-cryptography py3-urllib3 \
   py3-markupsafe py3-docutils
